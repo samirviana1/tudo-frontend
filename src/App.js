@@ -71,11 +71,10 @@ function App() {
     });
     setSelectedTodo();
     setInputVisbility(false);
+    setInputValue("");
     getTodos();
-    setTimeout(() => {
-      setInputValue("");
-    }, 3000);
   }
+
   async function deleteTodo(todo) {
     await axios.delete(`http://localhost:3000/todos/${todo.id}`);
     getTodos();
