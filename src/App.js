@@ -35,7 +35,7 @@ function App() {
   };
 
   async function getTodos() {
-    const response = await axios.get("http://localhost:3000/todos");
+    const response = await axios.get("http://localhost:3333/todos");
     setTodos(response.data);
   }
 
@@ -43,7 +43,7 @@ function App() {
     setInputVisbility(!inputVisbility);
   }
   async function createTodo() {
-    const response = await axios.post("http://localhost:3000/todos", {
+    const response = await axios.post("http://localhost:3333/todos", {
       name: inputValue,
     });
     getTodos();
@@ -52,7 +52,7 @@ function App() {
   }
 
   async function modifyStatusTodo(todo) {
-    const response = await axios.put("http://localhost:3000/todos", {
+    const response = await axios.put("http://localhost:3333/todos", {
       id: todo.id,
       status: !todo.status,
     });
@@ -65,7 +65,7 @@ function App() {
   }
 
   async function editTodo() {
-    const response = await axios.put("http://localhost:3000/todos", {
+    const response = await axios.put("http://localhost:3333/todos", {
       id: selectedTodo.id,
       name: inputValue,
     });
@@ -76,7 +76,7 @@ function App() {
   }
 
   async function deleteTodo(todo) {
-    await axios.delete(`http://localhost:3000/todos/${todo.id}`);
+    await axios.delete(`http://localhost:3333/todos/${todo.id}`);
     getTodos();
   }
   const [todos, setTodos] = useState([]);
