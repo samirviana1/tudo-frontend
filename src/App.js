@@ -35,9 +35,7 @@ function App() {
   };
 
   async function getTodos() {
-    const response = await axios.get(
-      "http://localhost/app-backend-api.vercel.app/todos"
-    );
+    const response = await axios.get("http://app-backend-api.vercel.app/todos");
     setTodos(response.data);
   }
 
@@ -46,7 +44,7 @@ function App() {
   }
   async function createTodo() {
     const response = await axios.post(
-      "http://localhost/app-backend-api.vercel.app/todos",
+      "http://app-backend-api.vercel.app/todos",
       {
         name: inputValue,
       }
@@ -58,7 +56,7 @@ function App() {
 
   async function modifyStatusTodo(todo) {
     const response = await axios.put(
-      "http://localhost/app-backend-api.vercel.app/todos",
+      "http://app-backend-api.vercel.app/todos",
       {
         id: todo.id,
         status: !todo.status,
@@ -74,7 +72,7 @@ function App() {
 
   async function editTodo() {
     const response = await axios.put(
-      "http://localhost/app-backend-api.vercel.app/todos",
+      "http://app-backend-api.vercel.app/todos",
       {
         id: selectedTodo.id,
         name: inputValue,
@@ -87,9 +85,7 @@ function App() {
   }
 
   async function deleteTodo(todo) {
-    await axios.delete(
-      `http://localhost/app-backend-api.vercel.app/todos/${todo.id}`
-    );
+    await axios.delete(`http://app-backend-api.vercel.app/todos/${todo.id}`);
     getTodos();
   }
   const [todos, setTodos] = useState([]);
