@@ -35,7 +35,9 @@ function App() {
   };
 
   async function getTodos() {
-    const response = await axios.get("http://app-backend-api.vercel.app/todos");
+    const response = await axios.get(
+      "https://app-backend-api.vercel.app/todos"
+    );
     setTodos(response.data);
   }
 
@@ -44,7 +46,7 @@ function App() {
   }
   async function createTodo() {
     const response = await axios.post(
-      "http://app-backend-api.vercel.app/todos",
+      "https://app-backend-api.vercel.app/todos",
       {
         name: inputValue,
       }
@@ -56,7 +58,7 @@ function App() {
 
   async function modifyStatusTodo(todo) {
     const response = await axios.put(
-      "http://app-backend-api.vercel.app/todos",
+      "https://app-backend-api.vercel.app/todos",
       {
         id: todo.id,
         status: !todo.status,
@@ -72,7 +74,7 @@ function App() {
 
   async function editTodo() {
     const response = await axios.put(
-      "http://app-backend-api.vercel.app/todos",
+      "https://app-backend-api.vercel.app/todos",
       {
         id: selectedTodo.id,
         name: inputValue,
