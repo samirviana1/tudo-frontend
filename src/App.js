@@ -42,7 +42,7 @@ function App() {
     setInputVisbility(!inputVisbility);
   }
   async function createTodo() {
-    const response = await axios.post("app-backend-api.vercel.app/todos", {
+    await axios.post("app-backend-api.vercel.app/todos", {
       name: inputValue,
     });
     getTodos();
@@ -51,7 +51,7 @@ function App() {
   }
 
   async function modifyStatusTodo(todo) {
-    const response = await axios.put("app-backend-api.vercel.app/todos", {
+    await axios.put("app-backend-api.vercel.app/todos", {
       id: todo.id,
       status: !todo.status,
     });
@@ -64,7 +64,7 @@ function App() {
   }
 
   async function editTodo() {
-    const response = await axios.put("app-backend-api.vercel.app/todos", {
+    await axios.put("app-backend-api.vercel.app/todos", {
       id: selectedTodo.id,
       name: inputValue,
     });
