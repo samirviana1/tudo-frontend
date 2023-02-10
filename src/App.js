@@ -35,7 +35,9 @@ function App() {
   };
 
   async function getTodos() {
-    const response = await axios.get("http://localhost:3333/todos");
+    const response = await axios.get(
+      "http://localhost:app-backend-api.vercel.app/todos"
+    );
     setTodos(response.data);
   }
 
@@ -43,19 +45,25 @@ function App() {
     setInputVisbility(!inputVisbility);
   }
   async function createTodo() {
-    const response = await axios.post("http://localhost:3333/todos", {
-      name: inputValue,
-    });
+    const response = await axios.post(
+      "http://localhost:app-backend-api.vercel.app/todos",
+      {
+        name: inputValue,
+      }
+    );
     getTodos();
     setInputVisbility(!inputVisbility);
     setInputValue("");
   }
 
   async function modifyStatusTodo(todo) {
-    const response = await axios.put("http://localhost:3333/todos", {
-      id: todo.id,
-      status: !todo.status,
-    });
+    const response = await axios.put(
+      "http://localhost:app-backend-api.vercel.app/todos",
+      {
+        id: todo.id,
+        status: !todo.status,
+      }
+    );
     getTodos();
   }
 
@@ -65,10 +73,13 @@ function App() {
   }
 
   async function editTodo() {
-    const response = await axios.put("http://localhost:3333/todos", {
-      id: selectedTodo.id,
-      name: inputValue,
-    });
+    const response = await axios.put(
+      "http://localhost:app-backend-api.vercel.app/todos",
+      {
+        id: selectedTodo.id,
+        name: inputValue,
+      }
+    );
     setSelectedTodo();
     setInputVisbility(false);
     setInputValue("");
@@ -76,7 +87,9 @@ function App() {
   }
 
   async function deleteTodo(todo) {
-    await axios.delete(`http://localhost:3333/todos/${todo.id}`);
+    await axios.delete(
+      `http://localhost:app-backend-api.vercel.app/todos/${todo.id}`
+    );
     getTodos();
   }
   const [todos, setTodos] = useState([]);
